@@ -1,4 +1,8 @@
 # VOXEL-WORLD
-voxel world is a modulated game looks like minecraft and also game engine like quake3 ,but **not completed yet**.
-# Now-what-can-do ?
-you can run bin/Debug/gll (ELF file) just a blue sky will appear...
+voxel world is a game looks like minecraft and also game engine like quake3.
+
+**UNDER DEVELOPEMENT**
+# libs:
+  SDL3
+  
+  OpenGL2(i am using old 32bit lap)
