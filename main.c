@@ -11,7 +11,7 @@
 //                                \                     /
 //                                  manage time in screen illution
 
-//  branch :master
+
 
 //importers//
 #include"window.h"//windowing system wrapper
@@ -19,13 +19,14 @@
 #include"event.h"//event_updater
 #include"world_updater.h"//slow , world updater
 //global variables
-int e_runner=1;
-int runner=1;//runner
+bool e_runner=1;
+bool runner=1;//runner
 win_t window={};
 SDL_Mutex *keyboard_event_s=NULL;
 SDL_Mutex *xyrot_s=NULL;
 //game mem
 int fps=1;
+int sen=10;
 //gl mem
 GLfloat x2,y2,rot_x2,rot_y2=0.0f;
 GLuint vbo2;
@@ -84,7 +85,7 @@ glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//clean
         glRotatef(y*1,1,0,0);
         glRotated(x,0,1,0);
         glTranslatef(rot_x,0,rot_y);
-        glEnableClientState(GL_VERTEx_ARRAY);
+        glEnableClientState(GL_VERTEX_ARRAY);
         glVertexPointer(3, GL_FLOAT, 0, 0);
         glDrawArrays(GL_LINE_LOOP, 0,9);
 SDL_GL_SwapWindow(window.window_hand); // Show frame

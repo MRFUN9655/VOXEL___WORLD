@@ -4,7 +4,7 @@
 //IMPORTERS//
 #include"window.h"
 #include"event.h"
-    extern int runner;
+    extern bool runner;
     extern SDL_Mutex *keyboard_event_s;
     extern win_t window;
     extern SDL_Mutex *xyrot_s;
@@ -14,7 +14,7 @@
     extern GLfloat x2,y2,rot_x2,rot_y2;
     extern GLuint vbo2;
     extern float vertices2[27];
-    extern int e_runner;
+    extern bool e_runner;
     extern int sen;
 //glob vars
     e keyboard_event;//  MAY CAUSE LINKAGE ERROR
@@ -39,8 +39,8 @@ switch (window.event.type) {
 }
 
 }
-static int keyboardevent(void *hi){
-unsigned int current_key = SDL_Keycode hi;
+/*static int keyboardevent(void *hi){
+unsigned int current_key =(unsigned int) *hi;
 while(e_runner){
 SDL_LockMutex(keyboard_event_s);
 
@@ -50,11 +50,11 @@ switch(keyboard_event.key.key){
     case down:
 
 }
-if(keyboard_event.type==0 && keyboard_event==current_key){
+if(keyboard_event.type==0 && keyboard_event.key.key==current_key){
     return 0;
 }
 }
-}
+}*/
 int event(void *hi){
     //alloc
 
@@ -73,13 +73,13 @@ while(e_runner){
         window.event.type=ev.type;
         window.event.motion.xrel=(int)ev.motion.xrel;
         window.event.motion.yrel=(int)ev.motion.yrel;
-            mouseevent();
+        SDL_CreateThread(mouseevent,"mouse event",NULL);
         break;
     case presseed:
         SDL_LockMutex(keyboard_event_s);
         keyboard_event=ev;
         SDL_UnlockMutex(keyboard_event_s);
-        SDL_CreateThread(keyboardevent,&keyboard_event.key.key);//only passing keys
+        //SDL_CreateThread(keyboardevent,&keyboard_event.key.key);//only passing keys
         break;
     case released:
         SDL_LockMutex(keyboard_event_s);

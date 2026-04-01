@@ -19,8 +19,8 @@
     SDL_ShowCursor(); \
     SDL_SetWindowRelativeMouseMode(win, 0);
 #define init() SDL_Init(SDL_INIT_EVENTS|SDL_INIT_VIDEO);\
-    SDL_GL_SetAttribute(SDL_GL_CONTExT_MAJOR_VERSION, 2);\
-    SDL_GL_SetAttribute(SDL_GL_CONTExT_MINOR_VERSION, 1);\
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);\
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);\
     SDL_GL_SetSwapInterval(1);
 
 
