@@ -1,7 +1,7 @@
 # VOXEL-WORLD
 voxel world is a game looks like minecraft and also game engine like quake3.
 
-**UNDER DEVELOPEMENT**
+**UNDER DEVELOPEMENT...**
 # libs:
   SDL3
   
